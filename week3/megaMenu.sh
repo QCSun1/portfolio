@@ -2,7 +2,8 @@
 # Check the password user enters against the stored passwords
 
 # User enter password
-read -rsp "Please enter your secret password: " password
+echo -e "\033[35mPlease enter your secret password: \033[0m"
+read -rsp "" password
 
 # Hash the input password
 inputHash=$(echo -n "$password" | sha256sum)
@@ -12,20 +13,20 @@ storedHash=$(cat ./week2/secret.txt)
 
 # Compare the hashes
 if [ "$inputHash" = "$storedHash" ]; then
-    echo -e "\nAccess Granted"
+    echo -e "\033[32m\nAccess Granted\033[0m"
 
     # List the available options for correct password input
-    echo "Select an option"
-    echo "1.Create a folder"
-    echo "2.Copy a folder"
-    echo "3.Set a password"
-    echo "4.Calculator"
-    echo "5. Create week folders"
-    echo "6. Check filenames"
-    echo "7. Download a file"
-    echo "8. Exit"
+    echo -e "\033[33mSelect an option\033[0m"
+    echo -e "\033[36m1.Create a folder"
+    echo -e "2.Copy a folder"
+    echo -e "3.Set a password"
+    echo -e "4.Calculator"
+    echo -e "5. Create week folders"
+    echo -e "6. Check filenames"
+    echo -e "7. Download a file"
+    echo -e "\033[37m8. Exit\033[0m"
 
-    read -rp "" option
+    read -r option
     
     case $option in
         1)
@@ -43,14 +44,14 @@ if [ "$inputHash" = "$storedHash" ]; then
         7)
         ./week3/InternetDownloader.sh;;
         8)
-        echo "Goodbye!"
+        echo -e "\033[32mGoodbye!\033[0m"
     esac
 
     exit 0
 
 else
     # Wrong password
-    echo -e "\nAccess Denied"
-    echo "Goodbye"
+    echo -e "\033[31m\nAccess Denied!\033[0m"
+    echo -e "\033[31mGoodbye!\033[0m"
     exit 1
 fi
