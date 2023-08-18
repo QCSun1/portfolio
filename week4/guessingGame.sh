@@ -29,7 +29,7 @@ getNumber()
 while true; do
     getNumber "Please enter a number between 1 and 100: " 1 100
     if [ $REPLY -eq 42 ]; then
-        echo "Correct!"
+        echo "Right!"
         break
     elif [ $REPLY -le 42 ]; then
 
