@@ -1,4 +1,5 @@
 #!/bin/bash
+# greeting
 
 echo "Hi there"
 

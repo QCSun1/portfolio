@@ -26,6 +26,8 @@ getNumber()
     done 
       
 } 
+
+#The loop for the guessing game until get the correct answer
 while true; do
     getNumber "Please enter a number between 1 and 100: " 1 100
     if [ $REPLY -eq 42 ]; then
