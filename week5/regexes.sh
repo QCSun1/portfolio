@@ -14,7 +14,7 @@ echo "4. all echo statements with at least three words"
 
 echo "5. all lines that would make a good password"
 
-read option 
+read -r option 
 
 case $option in
     1)
